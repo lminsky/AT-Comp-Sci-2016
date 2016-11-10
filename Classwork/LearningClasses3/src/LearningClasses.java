@@ -9,7 +9,7 @@ public class LearningClasses {
 		System.out.println(student.getAge());
 		System.out.println(student.danger);
 		student.danger=12;
-		student.age=4;
+		//student.age=4;
 		System.out.println(student.danger);
 	}
 
