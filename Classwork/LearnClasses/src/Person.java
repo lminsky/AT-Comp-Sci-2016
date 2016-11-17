@@ -3,7 +3,7 @@ public class Person {
 		private String name;
 		private int age = 10;
 		private String status = "";
-		int danger = 10;
+		int danger = 16;
 		Person(String n, int a) {
 			name=n;
 			age=a;
