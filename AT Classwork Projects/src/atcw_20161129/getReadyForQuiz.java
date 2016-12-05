@@ -3,7 +3,9 @@ package atcw_20161129;
 /* Subject of Quiz
  * Arrays ; how to declare and being careful with the index
  * Methods; argument, return value
- * Classes
+ * Classes; know constructors, know methods
+ * 			know how to create an object and call its methods
+ * 
  */
 
 public class getReadyForQuiz {
