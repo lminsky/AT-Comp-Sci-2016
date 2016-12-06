@@ -19,7 +19,11 @@ public class Array2 {
 		nums = temp;
 	}
 	
-	int pop() {}
+	// take the last value in the array and return it and then delete it 
+	// decreasing the length of the array by 1
+	int pop() {
+		
+	}
 	
 	// returns the value at index i in the array
 	int getValue(int i) {}
