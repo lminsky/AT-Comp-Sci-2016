@@ -2,7 +2,7 @@ package atcw_20161201;
 
 public class Array2 {
 	
-	int[] nums = new int[0];
+	private int[] nums = new int[0];
 	
 	Array2() {}
 	
