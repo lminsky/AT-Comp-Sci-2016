@@ -21,12 +21,20 @@ public class Array2 {
 	
 	// take the last value in the array and return it and then delete it 
 	// decreasing the length of the array by 1
-	int pop() {
-		
+//	int pop() {
+//		
+//	}
+	
+	void swap(int x, int y) {
+		int temp = nums[x];
+		nums[x] = nums[y];
+		nums[y] = temp;
 	}
 	
 	// returns the value at index i in the array
-	int getValue(int i) {}
+	int getValue(int i) {
+		return nums[i];
+	}
 	
 	//adds a number into the array at postion index and increases its size 1
 	void insert(int val,int index){}
@@ -34,6 +42,6 @@ public class Array2 {
 	void changeName(String n) {}
 	
 	//finds the sum of all the values in the array
-	int sum() {}
+	//int sum() {}
 	
 }
