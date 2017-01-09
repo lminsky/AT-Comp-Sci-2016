@@ -9,17 +9,12 @@ public class write {
     try {
       fw = new FileWriter("out.txt");
       String s = "";
-      
       for(int i = 0; i < 5; i++) {
     	  	s += (int)(Math.random()*100);
     	  	if(i < 4)
     	  		s += ",";
       }
-      
-      System.out.println(s);
-      
       fw.write(s);
-      
       fw.close();
     } catch (Exception e) {
       System.out.println("There was an error");
