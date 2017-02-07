@@ -4,9 +4,9 @@ public class compareTo {
 
 	public static void main(String[] args) {
 		String a = "aaaaaaaaaaaaaaaaaaaaaaaa aa";
-		String b = "aaaaaaaaaaaaaaaaaaaaaaaa aa";
+		String b = "aaaaaaaaaaaaaaaaaaaaaaaa a";
 		
-		if(a == b) {
+		if(a.compareTo(b) > 0) {
 			System.out.println("YES");
 		}
 
