@@ -4,36 +4,37 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class gui extends Frame implements ActionListener{
-	private Panel panel1;
-	private Panel panel2;
-	private Panel panel3;
+	private Panel panel1;		//Create the top panel
+	private Panel panel2;		//Create the middle panel
+	private Panel panel3;		//Create the bottom panel
 	
-	private TextField tf;
-	private Label lbl;
+	private TextField tf;		//Create the text field
+	private Label lbl;			//Create the label
 	
-	private Button plus;
-	private Button minus;
-	private Button get;
+	private Button plus;			//Create the plus button
+	private Button minus;		//Create the minus button
+	private Button get;			//Create the get button
 	
-	private int count = 0;
+	private int count = 0;		//Create the variable to track the counter
 	
 	private gui() {
-		setLayout(null);
-		setResizable(false);
-		setBackground(new Color(165, 23, 113));
+		setLayout(null);			//Set the frame layout to null (not FlowLayout so we can specify coordinates)
+		setResizable(false);		//Don't allow the user to resize the window
+		setBackground(new Color(165, 23, 113));	//Set the frame background color
 		
-		panel1 = new Panel();
-		lbl = new Label("Counter:");
-		tf = new TextField("0", 10);
-		panel1.add(lbl);
-		panel1.add(tf);
-		add(panel1);
-		panel1.setBackground(Color.cyan);
-		panel1.setBounds(0, 100, 500, 30); // (Top left x, top left y, width, height)
-		
-		panel2 = new Panel();
-		plus = new Button("+");
-		minus = new Button("-");
+		panel1 = new Panel();			//Instantiate the first panel
+		lbl = new Label("Counter:");		//Instantiate the label with the text "Counter:"
+		lbl.setFont(new Font("aaaiight! fat", Font.PLAIN, 36));	//Set the font of the label (Font name, style, size)
+		tf = new TextField("0", 10);		//Instantiate the text field starting with the value "0"
+		panel1.add(lbl);					//Add the label to panel1
+		panel1.add(tf);					//Add the text field to panel1
+		add(panel1);						//Add panel1 to the frame
+		panel1.setBackground(Color.cyan);	//Set the background of panel1
+		panel1.setBounds(0, 100, 500, 50); // (Top left x, top left y, width, height)
+				
+		panel2 = new Panel();			//Instantiate the second panel
+		plus = new Button("+");			//Instantiate the plus button	
+		minus = new Button("-");			//Instantiate the minus button
 		minus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				count--;
@@ -59,7 +60,7 @@ public class gui extends Frame implements ActionListener{
 				lbl.setText(fixCaps(tf.getText()));
 			}
 		});
-		panel3.add(get);
+		panel3.add(get); 
 		add(panel3);
 		panel3.setBackground(Color.gray);
 		panel3.setBounds(150, 400, 200, 50);
