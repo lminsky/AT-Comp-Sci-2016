@@ -82,7 +82,7 @@ public class panels extends Frame implements ActionListener{
 		panel0.setLayout(null);
 		panel0.add(button0a);
 		panel0.add(button0b);
-		panel0.setVisible(true);
+		panel0.setVisible(false);
 
 		panel1 = new Panel();
 		panel1.setBackground(Color.green);
@@ -90,7 +90,7 @@ public class panels extends Frame implements ActionListener{
 		panel1.setLayout(null);
 		panel1.add(button1a);
 		panel1.add(button1b);
-		panel1.setVisible(false);
+		panel1.setVisible(true);
 
 		panel2 = new Panel();
 		panel2.setBackground(Color.blue);
