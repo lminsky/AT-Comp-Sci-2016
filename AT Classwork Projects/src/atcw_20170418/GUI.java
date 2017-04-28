@@ -2,6 +2,8 @@ package atcw_20170418;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.GregorianCalendar;
+
 import javax.swing.*;
 
 public class GUI {
@@ -9,13 +11,14 @@ public class GUI {
 	private JFrame mainFrame;
 	private JButton getButton;
 	private JButton removeButton;
+	private JButton reserveButton;
 	private JTextArea ta;
 	
 	
 	GUI(School _packer) {
 		packer = _packer;
 		mainFrame = new JFrame("School");
-	    mainFrame.setSize(400,330);
+	    mainFrame.setSize(400,360);
 	    mainFrame.setLayout(new FlowLayout());
 	    
 	    getButton = new JButton("Get Rooms");
@@ -26,6 +29,10 @@ public class GUI {
 	    removeButton.setActionCommand("remove");
 	    removeButton.addActionListener(new ButtonClickListener());
 	    
+	    reserveButton = new JButton("Reserve Room");
+	    reserveButton.setActionCommand("reserve");
+	    reserveButton.addActionListener(new ButtonClickListener());
+	    
 	    ta = new JTextArea("", 15, 30);
 	    
 	    mainFrame.addWindowListener(new WindowAdapter() {
@@ -35,6 +42,7 @@ public class GUI {
 	      });
 	    mainFrame.add(getButton);
 	    mainFrame.add(removeButton);
+	    mainFrame.add(reserveButton);
 	    mainFrame.add(ta);
 	    mainFrame.setVisible(true);  
 	}
@@ -49,6 +57,18 @@ public class GUI {
 					System.out.println("Room removed");
 				else
 					System.out.println("womp womp");
+			} else if(command.equals("reserve")) {
+				String roomId = JOptionPane.showInputDialog(mainFrame, "Enter a Room Number").toUpperCase();
+				if(packer.getRoomIndex(roomId) != -1) {
+					String dateString = JOptionPane.showInputDialog(mainFrame, "What date (mm/dd/yyyy)");
+					if(packer.reserveRoom(roomId, dateString)) {
+						System.out.println("Room Reserved");
+					} else {
+						System.out.println("Sorry, that room is reserved");
+					}
+				} else {
+					System.out.println("Please enter a valid room number.");
+				}
 			}
 		}		
 	}

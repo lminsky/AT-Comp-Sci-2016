@@ -1,6 +1,8 @@
 package atcw_20170418;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class School {
 	ArrayList<Room> rooms = new ArrayList<Room>();
@@ -40,13 +42,38 @@ public class School {
 	 * @return true if the room is removed, false if nothing is removed
 	 */
 	boolean removeRoom(String id) {
-		for(int i = 0; i < rooms.size(); i++) {
-			if(rooms.get(i).getId().equals(id)) {
-				rooms.remove(i);
-				return true;
-			}
+		int roomIndex = getRoomIndex(id);
+		if(roomIndex != -1) {
+			rooms.remove(roomIndex);
+			return true;
 		}
 		return false;
+	}
+	
+	int getRoomIndex(String id) {
+		for(int i = 0; i < rooms.size(); i++) {
+			if(rooms.get(i).getId().equals(id))
+				return i;
+		}
+		return -1;
+	}
+	
+	boolean reserveRoom(String id, Calendar date) {
+		int roomIndex = getRoomIndex(id);
+		if(roomIndex != -1) {
+			return rooms.get(roomIndex).reserve(date);
+		}
+		return false;
+	}
+	
+	boolean reserveRoom(String id, String dateString) {
+		String[] dateStrings = dateString.split("/");
+		int month = Integer.parseInt(dateStrings[0])-1;
+		int day = Integer.parseInt(dateStrings[1]);
+		int year = Integer.parseInt(dateStrings[2]);
+		Calendar date = new GregorianCalendar(year, month, day);
+		
+		return reserveRoom(id, date);
 	}
 	
 	/**
