@@ -2,6 +2,7 @@ package atcw_20170418;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Room {
 	String id;
@@ -34,6 +35,7 @@ public class Room {
 	 * Returns the room identifier and its capacity
 	 */
 	public String toString() {
+		clearPassed();
 		String s =  id + " (Capacity: " + capacity + ")";
 		if(reservations.size() == 0) {
 			s += " - No Reservations.\n";
@@ -46,13 +48,23 @@ public class Room {
 		return s;
 	}
 	
+	void clearPassed() {
+		Calendar today = new GregorianCalendar();
+		for(int i = reservations.size()-1; i >= 0; i--) {
+			if(today.after(reservations.get(i).date)) {
+				reservations.remove(i);
+			}
+		}
+	}
+	
 	/**
 	 * Reserve the room for the specified date
 	 * @param Takes a calendar object
 	 * @return Returns true if the room was successfully reserved, false if not
 	 */
 	boolean reserve(Calendar date) {
-		if(!isReserved(date)) {
+		Calendar today = new GregorianCalendar();
+		if(!isReserved(date) && today.before(date)) {
 			return reservations.add(new Reservation(this, date));
 		}
 		return false;

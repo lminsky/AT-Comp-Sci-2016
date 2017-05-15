@@ -2,9 +2,8 @@ package atcw_20170418;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.GregorianCalendar;
-
 import javax.swing.*;
+import javax.swing.border.*;
 
 public class GUI {
 	School packer;
@@ -62,12 +61,12 @@ public class GUI {
 				if(packer.getRoomIndex(roomId) != -1) {
 					String dateString = JOptionPane.showInputDialog(mainFrame, "What date (mm/dd/yyyy)");
 					if(packer.reserveRoom(roomId, dateString)) {
-						System.out.println("Room Reserved");
+						JOptionPane.showMessageDialog (null, "Room Reserved", "Success", JOptionPane.INFORMATION_MESSAGE);
 					} else {
-						System.out.println("Sorry, that room is reserved");
+						JOptionPane.showMessageDialog (null, "Sorry, that reservation could not be created.", "Failure", JOptionPane.ERROR_MESSAGE);
 					}
 				} else {
-					System.out.println("Please enter a valid room number.");
+					JOptionPane.showMessageDialog (null, "Please enter a valid room number.", "Room Not Found", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}		
